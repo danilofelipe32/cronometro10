@@ -17,10 +17,10 @@ interface DigitProps {
 }
 const Digit: FC<DigitProps> = ({ value }) => {
   return (
-    <div className="relative w-[10vw] h-[20vh] max-w-[120px] max-h-[180px] flex items-center justify-center">
+    <div className="relative w-[20vw] h-[40vh] max-w-[250px] max-h-[350px] flex items-center justify-center">
       <span
         key={value}
-        className="absolute text-white text-[20vmin] md:text-9xl font-bold animate-flip-down"
+        className="absolute text-white text-[38vmin] font-bold animate-flip-down"
         style={{ textShadow: '0 0 20px rgba(255,255,255,0.3)' }}
       >
         {value}
@@ -46,8 +46,8 @@ const TimerDisplay: FC<TimerDisplayProps> = ({ totalSeconds, isFinished }) => {
     <div className={`flex items-center justify-center transition-transform duration-500 ${isFinished ? 'animate-pulse-finish' : ''}`}>
       <Digit value={m1} />
       <Digit value={m2} />
-      <div className="relative w-[5vw] h-[20vh] max-w-[60px] max-h-[180px] flex items-center justify-center">
-          <span className="text-white text-[15vmin] md:text-8xl font-bold pb-4">:</span>
+      <div className="relative w-[10vw] h-[40vh] max-w-[120px] max-h-[350px] flex items-center justify-center">
+          <span className="text-white text-[30vmin] font-bold pb-8">:</span>
       </div>
       <Digit value={s1} />
       <Digit value={s2} />
@@ -80,7 +80,7 @@ const Controls: FC<ControlsProps> = ({ minutes, setMinutes, seconds, setSeconds,
     <GlassCard className="w-full max-w-md">
       <div className="flex justify-around items-center mb-4">
         <div>
-          <label className="text-white/70 text-sm block text-center mb-1">Minutes</label>
+          <label className="text-white/70 text-sm block text-center mb-1">Minutos</label>
           <input
             type="number"
             value={minutes}
@@ -90,7 +90,7 @@ const Controls: FC<ControlsProps> = ({ minutes, setMinutes, seconds, setSeconds,
           />
         </div>
         <div>
-          <label className="text-white/70 text-sm block text-center mb-1">Seconds</label>
+          <label className="text-white/70 text-sm block text-center mb-1">Segundos</label>
           <input
             type="number"
             value={seconds}
@@ -103,15 +103,15 @@ const Controls: FC<ControlsProps> = ({ minutes, setMinutes, seconds, setSeconds,
       <div className="grid grid-cols-2 gap-4 mt-6">
         {isActive ? (
           <button onClick={onPause} className="bg-yellow-500/80 hover:bg-yellow-500/100 text-black font-bold py-3 px-4 rounded-lg transition duration-300 transform hover:scale-105">
-            Pause
+            Pausar
           </button>
         ) : (
           <button onClick={onStart} disabled={totalSeconds === 0} className="bg-green-500/80 hover:bg-green-500/100 disabled:bg-gray-500/50 disabled:cursor-not-allowed text-white font-bold py-3 px-4 rounded-lg transition duration-300 transform hover:scale-105">
-            Start
+            Iniciar
           </button>
         )}
         <button onClick={onReset} className="bg-red-500/80 hover:bg-red-500/100 text-white font-bold py-3 px-4 rounded-lg transition duration-300 transform hover:scale-105">
-          Reset
+          Zerar
         </button>
       </div>
     </GlassCard>
